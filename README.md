@@ -1,72 +1,27 @@
-# Getting Started with Create React App
+# React Query Presentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can view the presenation [here](https://www.youtube.com/watch?v=BLfYnxjTUnk)
 
-## Available Scripts
+## Demonstrations
 
-In the project directory, you can run:
+The following titles refer to the different demonstrations executed during the presentation.
 
-### `yarn start`
+    ### General Use Case
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    A basic example which illustrates how to implement the useQuery hook. data, error, isLoading and isFetching are destructured from the hooks return object for use in render logic.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    ### Default
 
-### `yarn test`
+    This example utilizes a default function (defaultQueryFunction exported from functions.js) which accepts queryKey as an argument passed down from the useQuery hook. defaultQueryFunction is assigned in the queryClient defaultOptions object in App.js and is made available to the application by passing the queryClient to QueryClientProvider. The useQueryClient hook is used in Default.js to make the function available to the component. The useQuery hook in this instance need only be passed the key as an argument.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    ### Pagination
 
-### `yarn build`
+    Demonstrates a custom hook, useFetchShows, which takes an argument, page, which is passed to the fetchShows function passed to the useQuery hook. The page information is also passed to the queryKey array in the useQuery hook. Options used in the example are keepPreviousData, staleTime, refetchOnWindowFocus, onSuccess, onError, and retry. The useQueryClient is required in the Pagination component. isPreviousData is destructered from the useFetchShows custom hook to track which pages are in the cache.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ### Dynamic Parallel Queries
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    Illustrates two (2) different executions of multiple queries. The first implements the useQueries hook being passed a map function which returns a queryKey and queryFn for each element mapped over. The second demo shows how the useQueries hook accepts an array of query option objects.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    ### Hooks and Cache
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# react-query-presentation
-# react-query-presentation
+    Multiple custom hooks, digging deep into queryClient to implement getQueryData for styling, and more... It's really cool. You've read this far so just dive in and take a look.
